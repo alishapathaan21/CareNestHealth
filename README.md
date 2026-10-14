@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CareNest Health – Care that listens</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F8FF;--surface:#fff;--ink:#0F2342;--muted:#51627F;--line:#D9E3F5;--brand:#2563EB;--brand-ink:#fff;--soft:#E4EEFF;--alert:#B45309;--alert-bg:#FFF1D6;
+--head:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;--body:'Source Sans 3','Segoe UI',system-ui,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1730;--surface:#12223F;--ink:#E8EFFC;--muted:#9FB0CE;--line:#243A63;--brand:#6EA0FF;--brand-ink:#07142E;--soft:#162A4D;--alert:#F6C26B;--alert-bg:#3A2D14}}
+:root[data-theme="dark"]{--bg:#0B1730;--surface:#12223F;--ink:#E8EFFC;--muted:#9FB0CE;--line:#243A63;--brand:#6EA0FF;--brand-ink:#07142E;--soft:#162A4D;--alert:#F6C26B;--alert-bg:#3A2D14}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 18px/1.6 var(--body)}
+h1,h2,h3{font-family:var(--head);line-height:1.1;margin:0}
+h1{font-size:clamp(2.3rem,6vw,4rem);font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:700;letter-spacing:-.01em}
+h3{font-size:1.2rem;font-weight:700}
+a{color:inherit}.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.logo{font:800 1.3rem var(--head);text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo b{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--brand);color:var(--brand-ink);font-size:1.1rem}
+nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0}
+nav a{text-decoration:none;font-weight:600;color:var(--muted)}nav a:hover{color:var(--ink)}
+.btn{display:inline-block;border:0;cursor:pointer;background:var(--brand);color:var(--brand-ink);font:600 1rem var(--body);padding:12px 22px;border-radius:999px;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+@media(max-width:720px){nav ul{display:none}}
+.hero{padding:56px 0 40px;background:linear-gradient(180deg,var(--soft),var(--bg))}
+.hero .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+@media(max-width:860px){.hero .grid{grid-template-columns:1fr}}
+.hero p.lead{font-size:1.2rem;color:var(--muted);max-width:52ch;margin:18px 0 26px}
+.finder{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px}
+.finder h3{margin-bottom:4px}.finder p{margin:0 0 16px;color:var(--muted);font-size:1rem}
+label{display:block;font-weight:600;font-size:.95rem;margin:12px 0 4px}
+select,input,textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:11px 14px}
+.facts{display:flex;gap:28px;flex-wrap:wrap;margin-top:8px}.facts div{font-size:.95rem;color:var(--muted)}.facts strong{display:block;font:700 1.6rem var(--head);color:var(--ink)}
+.about{background:var(--soft)}
+.about .cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:20px}
+@media(max-width:760px){.about .cols{grid-template-columns:1fr}}
+.about p{margin:0 0 14px;max-width:62ch}
+.values{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.values li{background:var(--surface);border-radius:14px;padding:14px 18px;border-left:5px solid var(--brand)}
+.values strong{display:block;font-family:var(--head)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:26px 0 8px}
+.chip{border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font:600 .95rem var(--body);padding:8px 16px;border-radius:999px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
+.tools input[type=search]{max-width:260px;margin-left:auto}
+.toggles{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:14px;color:var(--muted)}
+.toggles label{display:flex;align-items:center;gap:8px;margin:0;font-weight:400}.toggles input{width:auto}
+.count{color:var(--muted);margin:0 0 14px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:8px}
+.card{border-top:5px solid var(--cc,var(--brand))}.card .ico{font-size:1.7rem;width:54px;height:54px;border-radius:15px;display:grid;place-items:center;background:color-mix(in srgb,var(--cc,var(--brand)) 18%,transparent)}.card p{margin:0;color:var(--muted);font-size:1rem}.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:24px}.step{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px;text-align:center}.step .big{font-size:2.3rem;width:72px;height:72px;margin:0 auto 10px;border-radius:50%;display:grid;place-items:center;background:color-mix(in srgb,var(--cc) 18%,transparent)}.step p{margin:6px 0 0;color:var(--muted);font-size:1rem}.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.badges span{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-weight:600;font-size:.95rem}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:8px}
+.tag{font-size:.82rem;font-weight:600;background:var(--soft);padding:3px 10px;border-radius:999px}
+.tag.warn{background:var(--alert-bg);color:var(--alert)}
+.empty{grid-column:1/-1;padding:32px;border:2px dashed var(--line);border-radius:16px;text-align:center;color:var(--muted)}
+.docs{background:var(--soft)}
+.doc{display:flex;gap:14px;align-items:center}
+.av{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#2563EB,#0D9488);display:grid;place-items:center;font-size:1.9rem;flex:none}
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:24px}
+blockquote{margin:0;background:var(--surface);border-radius:16px;padding:22px;border:1px solid var(--line)}
+blockquote footer{margin-top:10px;color:var(--muted);font-size:.95rem}
+.contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+@media(max-width:760px){.contact .grid{grid-template-columns:1fr}}
+.note{background:var(--alert-bg);color:var(--alert);padding:12px 16px;border-radius:12px;font-weight:600;margin-top:16px}
+#msg{margin-top:12px;font-weight:600;color:var(--brand)}
+footer.site{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.95rem}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav aria-label="Main">
+<a class="logo" href="#home"><b>+</b>CareNest Health</a>
+<ul><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#doctors">Doctors</a></li><li><a href="#stories">Stories</a></li><li><a href="#contact">Contact</a></li></ul>
+<a class="btn" href="#contact">Book a visit</a></nav></div></header>
+
+<main>
+<section class="hero" id="home"><div class="wrap grid">
+<div>
+<h1>Healthcare that listens before it treats.</h1>
+<p class="lead">Family doctors, specialists, lab tests and online consults under one roof, with clear prices and short waits.</p>
+<a class="btn" href="#services">Browse services</a> <a class="btn ghost" href="#doctors">Meet our doctors</a>
+<div class="facts" style="margin-top:32px"><div><strong>25+</strong>Doctors</div><div><strong>15 min</strong>Average wait</div><div><strong>7 days</strong>Open every week</div></div>
+<div class="badges" aria-hidden="true"><span>🧑‍⚕️ Doctors</span><span>🧑 Patients</span><span>🏥 Clinic</span><span>🚑 Emergency</span><span>💊 Pharmacy</span><span>🧪 Lab</span></div>
+</div>
+<div class="finder" role="search"><h3>Find the right care</h3><p>Tell us what you need and we'll show matching services.</p>
+<label for="fneed">I need</label>
+<select id="fneed"><option value="All">Anything</option><option value="Checkups">A health checkup</option><option value="Specialists">A specialist</option><option value="Diagnostics">A test or scan</option><option value="Online">To talk to a doctor online</option><option value="Mental health">Mental health support</option></select>
+<label for="fwho">For</label>
+<select id="fwho"><option>Myself</option><option>My child</option><option>A parent or senior</option></select>
+<p style="margin-top:16px"><button class="btn" id="fgo" style="width:100%">Show matching services</button></p></div>
+</div></section>
+
+<section id="how"><div class="wrap"><h2>How your visit works</h2>
+<div class="steps">
+<div class="step" style="--cc:#2563EB"><div class="big" aria-hidden="true">🧑</div><h3>1. Patient books</h3><p>Choose a service online or walk in.</p></div>
+<div class="step" style="--cc:#0D9488"><div class="big" aria-hidden="true">🧑‍⚕️</div><h3>2. Doctor consults</h3><p>You get time to talk and ask questions.</p></div>
+<div class="step" style="--cc:#7C3AED"><div class="big" aria-hidden="true">🧪</div><h3>3. Tests if needed</h3><p>Lab and scan reports shared quickly.</p></div>
+<div class="step" style="--cc:#E11D48"><div class="big" aria-hidden="true">💊</div><h3>4. Recovery plan</h3><p>Clear medicines and a follow-up check.</p></div>
+</div></div></section>
+
+<section class="about" id="about"><div class="wrap">
+<h2>Medicine with time for questions</h2>
+<div class="cols">
+<div><p>CareNest started with one idea: a visit should leave you understanding your health, not more confused. Every appointment includes time to ask questions, and every plan is explained in plain language.</p>
+<p>Our team covers everyday care, long-term conditions and prevention. We share test results quickly, and we follow up after treatment so nothing is left open.</p></div>
+<ul class="values">
+<li><strong>Clear prices</strong>You see the fee before you book.</li>
+<li><strong>One record</strong>Your reports and prescriptions stay in a single place.</li>
+<li><strong>Follow-up included</strong>We check in after your visit.</li></ul>
+</div></div></section>
+
+<section id="services"><div class="wrap">
+<h2>Our services</h2>
+<p style="color:var(--muted);margin:8px 0 0">Filter by type, search by name, or narrow to what suits you today.</p>
+<div class="tools" id="chips" role="group" aria-label="Service category"></div>
+<div class="tools" style="margin-top:0"><input type="search" id="q" placeholder="Search services" aria-label="Search services" style="margin-left:0;max-width:320px"></div>
+<div class="toggles"><label><input type="checkbox" id="fonline"> Available online</label><label><input type="checkbox" id="ftoday"> Same-day appointments</label><label><input type="checkbox" id="fkids"> Suitable for children</label></div>
+<p class="count" id="count" aria-live="polite"></p>
+<div class="cards" id="cards"></div>
+</div></section>
+
+<section class="docs" id="doctors"><div class="wrap">
+<h2>Meet our doctors</h2>
+<div class="tools" id="dchips" role="group" aria-label="Doctor specialty"></div>
+<div class="cards" id="dcards"></div>
+</div></section>
+
+<section id="stories"><div class="wrap">
+<h2>What patients say</h2>
+<div class="quotes">
+<blockquote>The doctor explained my reports step by step and drew it out on paper. I finally understood my diabetes.<footer>👩 Meera, 52 · Patient</footer></blockquote>
+<blockquote>My son was scared of clinics. The pediatric team made him laugh before they checked him.<footer>👨 Rohan · Parent of a patient</footer></blockquote>
+<blockquote>I booked an online consult at 9 pm and had a prescription within the hour.<footer>🧑 Farhan, 34 · Online patient</footer></blockquote>
+</div></div></section>
+
+<section class="contact" id="contact" style="background:var(--soft)"><div class="wrap grid">
+<div><h2>Book a visit</h2>
+<p style="max-width:46ch">Send your details and our front desk will confirm a time by phone or email within a few hours.</p>
+<p><strong>Phone:</strong> +00 0000 000 000<br><strong>Email:</strong> hello@carenest.example<br><strong>Hours:</strong> Mon to Sun, 8 am to 8 pm</p>
+<div class="note">Emergency? Call your local emergency number. Do not use this form.</div></div>
+<div>
+<label for="n">Full name</label><input id="n" autocomplete="name">
+<label for="e">Email</label><input id="e" type="email" autocomplete="email">
+<label for="s">Service</label><select id="s"></select>
+<label for="m">What brings you in?</label><textarea id="m" rows="3"></textarea>
+<p><button class="btn" id="send">Request appointment</button></p><div id="msg" role="status"></div></div>
+</div></section>
+</main>
+<footer class="site"><div class="wrap">© 2026 CareNest Health. Sample website for demonstration. Information here is general and not medical advice.</div></footer>
+
+<script>
+const S=[
+{n:"General checkup",c:"Checkups",i:"🩺",d:"A full review of your health with a clear plan for the year.",o:1,t:1,k:1},
+{n:"Women's health screening",c:"Checkups",i:"🌸",d:"Preventive tests and a private conversation with a women's health doctor.",o:0,t:0,k:0},
+{n:"Senior wellness package",c:"Checkups",i:"🧓",d:"Heart, bone, vision and memory checks designed for adults over 60.",o:0,t:0,k:0},
+{n:"Cardiology",c:"Specialists",i:"❤️",d:"Care for blood pressure, chest pain, and heart rhythm problems.",o:1,t:0,k:0},
+{n:"Pediatrics",c:"Specialists",i:"🧸",d:"Growth checks, vaccines and treatment for babies through teenagers.",o:1,t:1,k:1},
+{n:"Dermatology",c:"Specialists",i:"🧴",d:"Help with acne, allergies, hair loss and skin conditions.",o:1,t:0,k:1},
+{n:"Blood tests",c:"Diagnostics",i:"🧪",d:"Home sample collection available. Most reports arrive within 24 hours.",o:0,t:1,k:1},
+{n:"X-ray and ultrasound",c:"Diagnostics",i:"🩻",d:"On-site imaging with a radiologist's written report.",o:0,t:1,k:0},
+{n:"Online doctor consult",c:"Online",i:"💻",d:"Video or phone visit for common illnesses, prescriptions and follow-ups.",o:1,t:1,k:1},
+{n:"Prescription refill",c:"Online",i:"💊",d:"Renew regular medicines after a short online review.",o:1,t:1,k:0},
+{n:"Counselling session",c:"Mental health",i:"🧠",d:"A calm, private hour with a licensed counsellor for stress, anxiety or low mood.",o:1,t:0,k:0},
+{n:"Teen and family support",c:"Mental health",i:"🫶",d:"Guided sessions for families going through change or conflict.",o:1,t:0,k:1}];
+const D=[
+{n:"Dr. Anita Rao",s:"Family medicine",x:"15 yrs"},{n:"Dr. Imran Shaikh",s:"Cardiology",x:"12 yrs"},
+{n:"Dr. Neha Patel",s:"Pediatrics",x:"10 yrs"},{n:"Dr. Karan Mehta",s:"Dermatology",x:"9 yrs"},
+{n:"Dr. Sara Thomas",s:"Mental health",x:"11 yrs"},{n:"Dr. Vikram Iyer",s:"Family medicine",x:"18 yrs"}];
+const CC={"Checkups":"#0D9488","Specialists":"#E11D48","Diagnostics":"#7C3AED","Online":"#2563EB","Mental health":"#F59E0B"};
+const cats=["All",...new Set(S.map(x=>x.c))];let cat="All";
+const $=id=>document.getElementById(id);
+function chips(el,list,cur,set){el.innerHTML="";list.forEach(v=>{const b=document.createElement("button");b.className="chip";b.textContent=v;b.setAttribute("aria-pressed",v===cur);b.onclick=()=>set(v);el.appendChild(b)})}
+function esc(t){return t.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]))}
+function renderS(){
+chips($("chips"),cats,cat,v=>{cat=v;renderS()});
+const q=$("q").value.trim().toLowerCase();
+const r=S.filter(x=>(cat==="All"||x.c===cat)&&(!$("fonline").checked||x.o)&&(!$("ftoday").checked||x.t)&&(!$("fkids").checked||x.k)&&(!q||(x.n+x.d).toLowerCase().includes(q)));
+$("count").textContent=r.length+(r.length===1?" service":" services")+" shown";
+$("cards").innerHTML=r.length?r.map(x=>`<article class="card" style="--cc:${CC[x.c]}"><div class="ico" aria-hidden="true">${x.i}</div><h3>${esc(x.n)}</h3><p>${esc(x.d)}</p><div class="tags"><span class="tag">${x.c}</span>${x.o?'<span class="tag">Online</span>':''}${x.t?'<span class="tag warn">Same day</span>':''}${x.k?'<span class="tag">Kids</span>':''}</div></article>`).join(""):'<div class="empty">No services match these filters. Clear a filter or change your search.</div>';
+}
+let dc="All";const specs=["All",...new Set(D.map(x=>x.s))];
+function renderD(){chips($("dchips"),specs,dc,v=>{dc=v;renderD()});
+$("dcards").innerHTML=D.filter(x=>dc==="All"||x.s===dc).map(x=>`<article class="card"><div class="doc"><div class="av" aria-hidden="true">${/Anita|Neha|Sara/.test(x.n)?"👩‍⚕️":"👨‍⚕️"}</div><div><h3>${x.n}</h3><span style="color:var(--muted)">${x.s} · ${x.x} experience</span></div></div></article>`).join("")}
+["q","fonline","ftoday","fkids"].forEach(id=>$(id).addEventListener("input",renderS));
+$("s").innerHTML=S.map(x=>`<option>${esc(x.n)}</option>`).join("");
+$("fgo").onclick=()=>{cat=$("fneed").value;renderS();$("services").scrollIntoView()};
+$("send").onclick=()=>{const ok=$("n").value.trim()&&/\S+@\S+\.\S+/.test($("e").value);$("msg").style.color=ok?"var(--brand)":"var(--alert)";$("msg").textContent=ok?"Thanks "+$("n").value.trim()+". Your request for "+$("s").value+" is received. We will confirm shortly.":"Enter your name and a valid email so we can reach you."};
+renderS();renderD();
+</script>
+</body>
